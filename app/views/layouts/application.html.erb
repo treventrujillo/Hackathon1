@@ -9,7 +9,9 @@
   </head>
 
   <body>
-    <%= render(partial: 'layouts/navbar') %>
+  <%= render(partial: 'layouts/navbar') %>
+  <div class="ui container center aligned">
     <%= yield %>
+  </div>
   </body>
 </html>
