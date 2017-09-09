@@ -1,16 +1,10 @@
 class CommentsController < ApplicationController
-
-before_action :set_post
-before_action :set_comment, only: [:edit, :update, :destroy]
-
-  # def index
-  # end
-
-  # def show
-  # end
+  before_action :set_post
+  before_action :set_comment, only: [:edit, :update, :destroy]
 
   def new
-    @comment = Comment.new
+    @comment = @post.comments
+    render partial: "form"
   end
 
   def create
@@ -28,7 +22,7 @@ before_action :set_comment, only: [:edit, :update, :destroy]
 
   def update
     if @comment.update(comment_params)
-      redirect_to [@user, @post]
+      redirect_to post_path(@path)
     else
       render partial: "form"
     end
@@ -36,7 +30,7 @@ before_action :set_comment, only: [:edit, :update, :destroy]
 
   def destroy
     @comment.destroy
-    redirect_to account_post_path(@post)
+    redirect_to post_path(@post)
   end
 
   private
@@ -45,7 +39,7 @@ before_action :set_comment, only: [:edit, :update, :destroy]
     end
 
     def set_comment
-      @comment = Comment.find(params[:id])
+      @comment = @post.comment([:id])
     end
 
     def comment_params
