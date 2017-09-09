@@ -2,6 +2,6 @@
 <%= link_to 'Create a New Post', new_post_path %>
 <hr>
 <% @posts.each do |post| %>
-  <%= link_to post.name, post %>
+    <h2><%= link_to post.content, post_path(post) %></h2>
   <hr>
 <% end %>

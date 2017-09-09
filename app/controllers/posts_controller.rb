@@ -20,9 +20,9 @@ before_action :set_post, only: [:show, :update, :edit, :destroy]
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
     if @post.save
-      redirect_to post_path(@post)
+      redirect_to @post
     else
       render partial: "form"
     end
@@ -43,7 +43,7 @@ before_action :set_post, only: [:show, :update, :edit, :destroy]
 
   private
     def set_post
-      @post = Post.find(params[:id])
+      @post = current_user.posts.find(params[:id])
     end
 
     def post_params
