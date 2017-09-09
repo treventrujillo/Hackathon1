@@ -55,7 +55,7 @@ class BiosController < ApplicationController
     end
 
     def bio_params
-      params.require(:bio).permit(:image, :description)
+      params.require(:bio).permit(:avatar, :description)
     end
 
 end
