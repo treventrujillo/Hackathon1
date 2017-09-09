@@ -1,11 +1,13 @@
 <h1><%= @post.content %></h1>
-<% @comments.each do |comment| %>
-<hr>
-<p><%= comment.message %></p>
-<hr>
+<%= link_to 'Edit Post', edit_post_path(@post), class: "ui button" %>
+<%= link_to 'Delete Post', @post, class: "ui button", method: :delete %>
+<%= link_to 'Back to Posts', posts_path, class: "ui button" %>
+<%= link_to 'Add Comment', new_post_comment_path(@post), class: "ui button" %>
+  <% @comments.each do |comment| %>
+  <hr>
+  <p><%= comment.message %></p>
+  <hr>
+  
 <% end %>
 
-<%= link_to 'Edit Post', edit_post_path(@post) %>
-<%= link_to 'Delete Post', @post, method: :delete %>
-<%= link_to 'Back to Posts', posts_path %>
-<%= link_to 'Add Comment', new_post_comment_path(@post) %>
+
