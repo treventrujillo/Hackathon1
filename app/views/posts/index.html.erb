@@ -1,4 +1,5 @@
 <h1>All Posts</h1>
+<<<<<<< HEAD
 <%= link_to 'Create a New Post', new_post_path %>
 <hr >
 
@@ -25,3 +26,12 @@
 
   </div>
 </div>  
+=======
+<%= link_to 'Create a New Post', new_post_path, class: "mini ui teal button" %>
+<hr>
+<% @posts.each do |post| %>
+    <h2><%= link_to post.content, post_path(post) %></h2>
+    <%= link_to 'Delete', post, method: :delete, class: "mini ui red button" %>
+  <hr>
+<% end %>
+>>>>>>> fixed edit delete
