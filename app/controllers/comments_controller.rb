@@ -3,14 +3,15 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update, :destroy]
 
   def new
-    @comment = @post.comments
+    @comment = @post.comments.new
     render partial: "form"
   end
 
   def create
     @comment = @post.comments.new(comment_params)
-    if comment.save
-      redirect_to account_post_path(@post)
+    @comment.user = current_user
+    if @comment.save
+      redirect_to post_path(@post)
     else
       render :new
     end
