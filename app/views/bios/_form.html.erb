@@ -3,9 +3,6 @@
   <h1 class="ui header"><%= current_user.id ? 'Edit Bio' : 'Create Bio' %></h1>
     <%= form_for @bio do |f| %>
       <div class="ui form" id="trip_form">
-        <%= form_for @bio, url: bios_path, html: { multipart: true } do |form| %>
-          <%= form.file_field :avatar %>
-        <% end %>
         <%= f.label :description %>
         <%= f.text_area :description %>
         <%= f.submit nil, class: "ui button primary" %>
