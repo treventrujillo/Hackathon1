@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
   root to: 'static_pages#show'
 
-  resources :accounts do
-    resources :posts, :bio
+  resources :posts do
+    resources :comments
   end
 
-  scope 'posts/:post_id', as: 'post' do
-    resources :comments, only: [:new, :create]
-  end
+  resources :bios
 
   devise_for :users
 end
