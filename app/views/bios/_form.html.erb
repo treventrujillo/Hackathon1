@@ -1,0 +1,12 @@
+<<div class="ui container">
+  <h1 class="ui header"><%= @.id ? 'Edit Bio' : 'Create Bio' %></h1>
+    <%= form_for @bio  do |f| %>
+      <div class="ui form" id="trip_form">
+        <%= f.label :profile_image %>
+        <%= f.string :profile_image %>
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+        <%= f.submit nil, class: "ui button primary" %>
+    </div>
+  <% end %>
+</div>
