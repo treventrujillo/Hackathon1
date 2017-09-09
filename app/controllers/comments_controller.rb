@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update, :destroy]
 
   def new
-    @comment = @post.comments
+    @comment = @post.comments.new
     render partial: "form"
   end
 
