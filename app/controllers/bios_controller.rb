@@ -6,7 +6,6 @@ class BiosController < ApplicationController
   end
 
   def show
-    @accounts = current_user.order(:rank)
   end
 
   def new
@@ -19,7 +18,8 @@ class BiosController < ApplicationController
   end
 
   def create
-    @bio = current_user.bios.new(bio_params)
+    @bio = Bio.new(bio_params)
+    @bio.user = current_user
     if @bio.save
       flash[:success] = "New Bio successfully added!"
       redirect_to bio_path(@bio)
@@ -47,7 +47,7 @@ class BiosController < ApplicationController
 
   private
     def set_bio
-      @bio = current_user.bios.find(params[:id])
+      @bio = current_user.bio
     end
 
     def set_account
@@ -55,7 +55,7 @@ class BiosController < ApplicationController
     end
 
     def bio_params
-      params.require(:bio).permit(:name, :image)
+      params.require(:bio).permit(:image, :description)
     end
 
 end
