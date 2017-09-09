@@ -9,8 +9,9 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @post.comments.new(comment_params)
-    if comment.save
-      redirect_to account_post_path(@post)
+    @comment.user = current_user
+    if @comment.save
+      redirect_to post_path(@post)
     else
       render :new
     end

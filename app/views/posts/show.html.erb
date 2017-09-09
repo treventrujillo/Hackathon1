@@ -1,6 +1,8 @@
 <h1><%= @post.content %></h1>
-<% @post.comments.each do |comment| %>
-  <% render 'comments/comment', {comment: comment} %>
+<% @comments.each do |comment| %>
+<hr>
+<p><%= comment.message %></p>
+<hr>
 <% end %>
 
 <%= link_to 'Edit Post', edit_post_path(@post) %>

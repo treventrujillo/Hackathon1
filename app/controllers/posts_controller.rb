@@ -8,6 +8,7 @@ before_action :set_post, only: [:show, :update, :edit, :destroy]
   end
 
   def show
+    @comments = @post.comments.all
   end
 
   def new
