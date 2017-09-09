@@ -21,7 +21,7 @@ before_action :set_post, only: [:show, :update, :edit, :destroy]
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to post_path(@post)
+      redirect_to account_post_path(@post)
     else
       render partial: "form"
     end
@@ -29,7 +29,7 @@ before_action :set_post, only: [:show, :update, :edit, :destroy]
 
   def update
     if @post.update(post_params)
-      redirect_to post_path(@post)
+      redirect_to account_post_path(@post)
     else
       render partial: "form"
     end
@@ -37,7 +37,7 @@ before_action :set_post, only: [:show, :update, :edit, :destroy]
 
   def destroy
     @post.destroy
-    redirect_to posts_path
+    redirect_to account_posts_path
   end
 
   private

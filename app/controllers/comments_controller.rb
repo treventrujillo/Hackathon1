@@ -16,7 +16,7 @@ before_action :set_comment, only: [:edit, :update, :destroy]
   def create
     @comment = @post.comments.new(comment_params)
     if comment.save
-      redirect_to topic_path(@topic)
+      redirect_to account_post_path(@post)
     else
       render :new
     end
@@ -28,7 +28,7 @@ before_action :set_comment, only: [:edit, :update, :destroy]
 
   def update
     if @comment.update(comment_params)
-      redirect_to [@post]
+      redirect_to [@user, @post]
     else
       render partial: "form"
     end
@@ -36,7 +36,7 @@ before_action :set_comment, only: [:edit, :update, :destroy]
 
   def destroy
     @comment.destroy
-    redirect_to post_path(@post)
+    redirect_to account_post_path(@post)
   end
 
   private
