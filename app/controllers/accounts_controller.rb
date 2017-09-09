@@ -1,4 +1,6 @@
 class AccountsController < ApplicationController
+  before_action :set_account, except: [:new]
+
   def index
   end
 
@@ -10,4 +12,10 @@ class AccountsController < ApplicationController
 
   def edit
   end
+
+  private
+    def set_account
+      @account = current_user
+    end
+
 end

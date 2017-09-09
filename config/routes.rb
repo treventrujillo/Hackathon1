@@ -1,25 +1,13 @@
 Rails.application.routes.draw do
-  get 'comments/index'
+  root to: 'static_pages#show'
 
-  get 'comments/show'
+  resources :accounts do
+    resources :posts, :bio
+  end
 
-  get 'comments/new'
-
-  get 'posts/index'
-
-  get 'posts/show'
-
-  get 'posts/new'
-
-  get 'bios/index'
-
-  get 'bios/show'
-
-  get 'bios/new'
-
-  root to: 'accounts#index'
+  scope 'posts/:post_id', as: 'post' do
+    resources :comments, only: [:new, :create]
+  end
 
   devise_for :users
-
-  resources :accounts
 end
