@@ -1,5 +1,4 @@
 <h1>All Posts</h1>
-<<<<<<< HEAD
 <%= link_to 'Create a New Post', new_post_path %>
 <hr >
 
@@ -16,9 +15,9 @@
         </div>
       </div>
       <div class="ui container">
-        <button class="ui button left aligned">Like <i class="heart icon"></i></button>
+        <button class="ui button teal left aligned">Like <i class="heart icon"></i></button>
         <%= link_to 'Edit <i class="edit icon"></i>'.html_safe, edit_post_path(post), class: "ui button center aligned" %>
-        <%= link_to 'Delete <i class="trash icon"></i>'.html_safe, post_path(post), class: "ui button right aligned", method: :delete %>
+        <%= link_to 'Delete <i class="trash icon"></i>'.html_safe, post_path(post), class: "ui button red right aligned", method: :delete %>
       </div>
     </div>
    
@@ -26,12 +25,3 @@
 
   </div>
 </div>  
-=======
-<%= link_to 'Create a New Post', new_post_path, class: "mini ui teal button" %>
-<hr>
-<% @posts.each do |post| %>
-    <h2><%= link_to post.content, post_path(post) %></h2>
-    <%= link_to 'Delete', post, method: :delete, class: "mini ui red button" %>
-  <hr>
-<% end %>
->>>>>>> fixed edit delete
