@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
 before_action :set_post, only: [:show, :update, :edit, :destroy]
+# before_action :set_user
 
   def index
     @posts = current_user.posts
@@ -21,7 +22,7 @@ before_action :set_post, only: [:show, :update, :edit, :destroy]
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to account_post_path(@post)
+      redirect_to post_path(@post)
     else
       render partial: "form"
     end
@@ -29,7 +30,7 @@ before_action :set_post, only: [:show, :update, :edit, :destroy]
 
   def update
     if @post.update(post_params)
-      redirect_to account_post_path(@post)
+      redirect_to post_path(@post)
     else
       render partial: "form"
     end
@@ -37,7 +38,7 @@ before_action :set_post, only: [:show, :update, :edit, :destroy]
 
   def destroy
     @post.destroy
-    redirect_to account_posts_path
+    redirect_to posts_path
   end
 
   private
@@ -48,4 +49,8 @@ before_action :set_post, only: [:show, :update, :edit, :destroy]
     def post_params
       params.require(:post).permit(:content)
     end
+
+    # def set_user
+    #   @user = User.find(params[:id])
+    # end
 end

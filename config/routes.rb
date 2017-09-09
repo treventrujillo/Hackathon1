@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root to: 'static_pages#show'
 
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
 
   resources :bios
 
