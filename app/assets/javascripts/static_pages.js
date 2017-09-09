@@ -1,2 +1,6 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+$('.context.example .ui.sidebar')
+.sidebar({
+  context: $('.context.example .bottom.segment')
+})
+.sidebar('attach events', '.context.example .menu .item')
+;

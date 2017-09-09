@@ -1,0 +1,22 @@
+<div class="ui secondary  menu">
+<div class="item">
+  <%= link_to 'Home', root_path %>
+</div>
+<div class="item">
+  <%= link_to 'Profile', account_path([:id]) %>
+</div>
+<div class="item active">
+  <%= link_to 'Posts', account_posts_path([:id]) %>
+</div>
+<div class="right menu">
+  <div class="item">
+    <div class="ui icon input">
+      <input type="text" placeholder="Search...">
+      <i class="search link icon"></i>
+    </div>
+  </div>
+  <a class="ui item">
+    Logout
+  </a>
+</div>
+</div>
