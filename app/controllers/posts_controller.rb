@@ -51,7 +51,4 @@ before_action :set_post, only: [:show, :update, :edit, :destroy]
       params.require(:post).permit(:content)
     end
 
-    # def set_user
-    #   @user = User.find(params[:id])
-    # end
 end
